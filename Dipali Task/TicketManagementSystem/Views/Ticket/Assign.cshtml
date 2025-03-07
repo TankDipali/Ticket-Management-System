@@ -1,0 +1,21 @@
+@model Ticket
+@{
+    ViewData["Title"] = "Assign Ticket";
+}
+
+<h2>Assign Ticket</h2>
+<form method="post">
+    <input type="hidden" name="ticketId" value="@Model.TicketId" />
+
+    <label>Assign To:</label>
+    <select name="assignedToUserId" class="form-control">
+        @foreach (var user in ViewBag.Users)
+        {
+            <option value="@user.UserId">@user.Username</option>
+        }
+    </select>
+
+    <button type="submit" class="btn btn-primary mt-2">Assign</button>
+</form>
+
+<a href="@Url.Action("Index")">Back to List</a>
