@@ -1,0 +1,24 @@
+﻿@model Ticket
+@{
+    ViewData["Title"] = "Create Ticket";
+}
+
+<h2>Create Ticket</h2>
+<form method="post">
+    <label>Title:</label>
+    <input type="text" name="Title" required class="form-control" />
+
+    <label>Description:</label>
+    <textarea name="Description" required class="form-control"></textarea>
+
+    <label>Priority:</label>
+    <select name="Priority" class="form-control">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+    </select>
+
+    <button type="submit" class="btn btn-success mt-2">Create</button>
+</form>
+
+<a href="@Url.Action("Index")">Back to List</a>

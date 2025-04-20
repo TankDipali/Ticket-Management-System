@@ -1,0 +1,32 @@
+@model Ticket
+@{
+    ViewData["Title"] = "Edit Ticket";
+}
+
+<h2>Edit Ticket</h2>
+<form method="post">
+    <input type="hidden" name="TicketId" value="@Model.TicketId" />
+
+    <label>Title:</label>
+    <input type="text" name="Title" value="@Model.Title" required class="form-control" />
+
+    <label>Description:</label>
+    <textarea name="Description" required class="form-control">@Model.Description</textarea>
+
+    <label>Priority:</label>
+    <select name="Priority" class="form-control">
+        <option value="Low" @(Model.Priority == "Low" ? "selected" : "")>Low</option>
+        <option value="Medium" @(Model.Priority == "Medium" ? "selected" : "")>Medium</option>
+        <option value="High" @(Model.Priority == "High" ? "selected" : "")>High</option>
+    </select>
+
+    <label>Status:</label>
+    <select name="Status" class="form-control">
+        <option value="Open" @(Model.Status == "Open" ? "selected" : "")>Open</option>
+        <option value="Resolved" @(Model.Status == "Resolved" ? "selected" : "")>Resolved</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary mt-2">Save Changes</button>
+</form>
+
+<a href="@Url.Action("Index")">Back to List</a>
